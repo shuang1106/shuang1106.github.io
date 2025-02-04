@@ -1,0 +1,18 @@
+// 框線設計 線條樣式或圓角樣式
+// 無參數版圓角矩形
+@mixin border-radius() {
+    border-radius: 20px;
+}
+@mixin Border-Radius($Num) {
+    border-radius: $Num;
+}
+@mixin Border-radius($TLR, $TRR, $BRR, $BLR) {
+    border-top-left-radius: $TLR;
+    border-top-right-radius: $TRR;
+    border-bottom-right-radius: $BRR;
+    border-bottom-left-radius: $BLR;
+}
+@mixin Border-Styles($Style, $Width, $Color) {
+    // 框線樣式 寬度 顏色
+    border: $Style $Width $Color;
+}

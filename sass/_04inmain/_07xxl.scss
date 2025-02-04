@@ -1,0 +1,22 @@
+@use '../_01Joint/_mixins/_01media' as Rwd;
+
+@include Rwd.Rwd(xxl) {
+    
+    #ContactInformation {
+        .InForForm {
+            #InForm {
+                .TextareaBox {
+                    textarea {
+                        // 若html標籤之內撰寫cols和rows屬性則可以不設定寬與高;反之需設定
+                        width: 99.5%;
+                        height: 100%;
+                        max-width: 99.5%;
+                        max-height: 240px;
+                        min-width: 99.5%;
+                        min-height: 240px;
+                    }
+                }
+            }
+        }
+    }
+}

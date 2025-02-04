@@ -1,0 +1,248 @@
+// 呼叫媒體判斷
+@use '../_01Joint/_mixins/_01media' as RWD;
+
+
+@include RWD.Rwd(xs) {
+    // 廣告區塊:手機版建議用正方形尺寸設定
+    #Inmain {
+        > #BannerBox {
+            // 相對定位
+            position: relative;
+            width: 100%;
+            margin-top: 88px;
+            .controls {
+                // 絕對定位
+                position: absolute;
+                // 靠上
+                top: 45%;
+                width: 100%;
+                display: none;
+                justify-content: space-between;
+
+                button {
+                    background-color: rgba(255, 255, 255, 0);
+                    color: #ffffff00;
+                    border: none;
+                    padding: 10px;
+                    // 手型符號
+                    cursor: pointer;
+                }
+            }
+        }
+        #Banners {
+            width: 100%;
+            max-width: 600px;
+            max-height: 185px;
+            // 隱藏溢出內容
+            overflow: hidden;
+            // 相對定位
+            position: relative;
+            .Images {
+                width: 100%;
+                // 絕對定位
+                position: absolute;
+                // display: none;
+                // 透明度為0
+                opacity: 0;
+                // 淡入淡出動畫
+                transition: opacity 1s ease-in-out;
+
+            }
+            .active {
+                // display: block;
+                // 透明度100%
+                opacity: 1;
+            }
+        }
+    }
+};
+@include RWD.Rwd(md) {
+    #Inmain {
+        > #BannerBox {
+            .controls {
+                // 絕對定位
+                position: absolute;
+                // 靠上
+                top: 45%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    background-color: rgb(199, 199, 199);
+                    color: #000;
+                    border: none;
+                    padding: 10px;
+                    // 手型符號
+                    cursor: pointer;
+                }
+            }
+            
+        }
+        #Banners {
+            margin: 0 auto;
+            max-height: 323px;
+        }
+        > #Portfolio {
+            #PhotoS {
+                margin: 0 80px 0 80px;
+                // 網格編輯方式 Grid:處理資料最後一排數量不足且未填滿整排但需靠左對齊的情況
+                // 方法1:設定justify-items(單行)或justify-content(多行)
+                display: grid;
+                // 靠左對齊
+                justify-content: start;
+                // repeat(需重複的行或列次數, 每佔用1個列的寬度彈性單位) 
+                grid-template-columns: repeat(2, 1fr);
+                // 每個項目之間的間距值
+                // gap: 50px;
+                }
+        }
+        #YugiohCard {
+            
+            width: 95%;
+            // 彈性佈局
+            display: flex;
+            // 水平均分
+            justify-content: space-between;
+            // 垂直置中
+            align-items: center;
+            // 換行
+            flex-wrap: wrap;
+            // 框架置中
+            margin: 0 auto;
+            > .CardContent {
+                width: 30%;
+                // margin: 30px 50px 0 50px;
+            }
+            > .Photos1 {
+                width: 35%;
+            }
+            > .Photos2 {
+                width: 50%;
+            }
+            > .Photos3 {
+                width: 50%;
+                margin-top: 0;
+            }
+        }
+    }
+};
+@include RWD.Rwd(lg) {
+    #Inmain {
+        #YugiohCard {
+            // 不換行
+            flex-wrap: nowrap;
+            > .CardContent {
+                // width: 50%;
+                margin: 30px 20px 0 20px;
+            }
+        }
+        > #Portfolio {
+            #PhotoS {
+                margin: 15px 50px 15px 50px;
+                // 網格編輯方式 Grid:處理資料最後一排數量不足且未填滿整排但需靠左對齊的情況
+                // 方法1:設定justify-items(單行)或justify-content(多行)
+                display: grid;
+                // 靠左對齊
+                justify-content: start;
+                // repeat(需重複的行或列次數, 每佔用1個列的寬度彈性單位) 
+                grid-template-columns: repeat(3, 1fr);
+                // 每個項目之間的間距值
+                // gap: 50px;
+            }
+        }    
+    }
+};
+@include RWD.Rwd(xl) {
+    header {
+        
+        ul {
+            li {
+                
+                padding: 0 40px 0 50px;
+                
+            }
+            
+        }
+    }
+    #Inmain {
+        > #Aboutme {
+            .Content {
+                width: 60%;
+                > .img {
+                    width: 50%;
+                }
+                > .TC {
+                    #MM {
+                        margin: 110px 0 0 0;
+                    }
+                    width: 60%;
+                }
+            }
+        }
+        > #Portfolio {
+            #PhotoS {
+                margin: 15px 185px 15px 185px;
+                // 網格編輯方式 Grid:處理資料最後一排數量不足且未填滿整排但需靠左對齊的情況
+                // 方法1:設定justify-items(單行)或justify-content(多行)
+                display: grid;
+                // 靠左對齊
+                justify-content: start;
+                // repeat(需重複的行或列次數, 每佔用1個列的寬度彈性單位) 
+                grid-template-columns: repeat(3, 1fr);
+                // 每個項目之間的間距值
+                // gap: 50px;
+            }
+        }
+        #YugiohCard {
+            > .CardContent {
+                // width: 20%;
+                margin: 30px 30px 0 30px;
+            }
+            > .Photos1 {
+                width: 50%;
+            }
+            > .Photos2 {
+                width: 70%;
+            }
+            > .Photos3 {
+                width: 70%;
+            }
+        }
+        #ContactInformation {
+            .InForForm {
+                .Box {
+                    width: 70px;
+                    height: 70px;
+                    background-image: url(../../images/bg/bg03.png);
+                    top: -45.5px;
+                    right: -35px;
+                }
+            }
+        }
+    }
+}
+@include RWD.Rwd(xxl) {
+    #Inmain {
+        > #Portfolio {
+            #PhotoS {
+                margin: 15px 255px 15px 255px;
+            }
+        }
+        #YugiohCard {
+            width: 90%;
+            > .CardContent {
+                margin: 30px 20px 0 20px;
+            }
+            > .Photos1 {
+                width: 45%;
+            }
+            > .Photos2 {
+                width: 60%;
+            }
+            > .Photos3 {
+                width: 60%;
+            }
+        }
+    }
+}

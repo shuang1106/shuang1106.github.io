@@ -1,0 +1,11 @@
+import { Years } from './module/DateModule.js';
+import { AddLabelFor, PhotosForArray, PhotosDataArray, AddLabel } from './module/AddLabel.js';
+import { carousel } from './module/carousel.js';
+import { OpenClose } from './module/openclose.js';
+Years();
+// AddLabelFor(3);
+// PhotosForArray();
+// AddLabel();
+PhotosDataArray();
+carousel();
+OpenClose();

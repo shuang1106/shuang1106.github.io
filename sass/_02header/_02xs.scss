@@ -1,0 +1,129 @@
+/* 
+scss
+第一重點變數
+第二重點巢狀寫法
+第三重點繼承(Extent) 合併一模一樣的樣式內容 目前無法使用各別檔案連結 自適應也無法使用同一設定
+第四重點混入(Mixins) 將經常被重複使用的程式碼獨立撰寫 可以設定參數 需要時再代入(@include)使用
+第五重點 Mixins若設計使用函數和變數時無法用@import匯入 需使用模組@use讀取
+*/
+
+// 媒體判斷media
+// 1.標籤選取器 2.子孫選取器(例:header h1) 3.子(指)選取器(例:header>nav) 
+// 4.ID選取器 5.類別選取器class
+
+// 設計手機版的樣式使用media媒體判斷:1.讀取變數檔案2.讀取媒體判斷檔案
+@use '../_01Joint/_03variable' as Var;
+@use '../_01Joint/_mixins/_01media' as Rwd;
+
+@include Rwd.Rwd(xs) {
+    header {
+        width: 100%;
+        // 停佇 定位點:鎖定
+        position: fixed;
+        // 靠上
+        top: 0;
+        // 層疊樣式:數字(無須單位 數字越大階層越高 要啟動此樣式須配合絕對定位)
+        z-index: 6;
+        // 用內間距padding取代高度(固定單位px) 上右下左
+        // padding: 20px 0 20px 0px;
+        height: 88px;
+        // 顯示方式:彈性佈局
+        display: flex;
+        // 對齊方式:垂直
+        align-items: center;
+        // 對齊方式:水平均分
+        justify-content: space-between;
+        background-color: Var.$pink;
+        
+        $h1Width: 30%;
+        // $divWidth: calc( 100% - $h1Width );
+        >h1 {
+            // 寬度(用內間距padding取代寬度) 前面管上下後面管左右
+            padding: 0 20px;
+            // width: $h1Width;
+            // 文字顏色
+            color: blueviolet;
+            // 文字尺寸可用單位px(固定值)或rem(相對值)
+            font-size: 30px;
+            // 文字置中對齊
+            text-align: center;
+            // 設定字距
+            letter-spacing: 5px;
+            > a {
+                color: blueviolet;
+                // 取消底線樣式
+                text-decoration: none;
+            }
+        }
+        > #NavBox {
+            display: none;
+        }
+        > #NB {
+            // 顯示方式:隱藏
+            display: none;
+            width: 100%;
+            // vh單位-裝置可視範圍高度 為相對單位(與%相同) 會展開高度
+            height: 65vh;
+            // 絕對定位
+            position: absolute;
+            // 疊層樣式
+            z-index: 7;
+            // 靠上
+            top: 0;
+            // right: 0;
+            background-color: Var.$pink;
+            > #NI {
+                
+                padding: 15px;
+                // 總寬不變
+                box-sizing: border-box;
+                > #Close {
+                    margin-right: 10px;
+                    font-size: 30px;
+                    text-align: center;
+                    width: 50px;
+                    // height: 60px;
+                    padding: 15px 0 10px 0;
+                    // 絕對定位
+                    position: absolute;
+                    // 靠右
+                    right: 0;
+                    // background-color: aquamarine;
+                }
+                > .TS {
+                    width: 35%;
+                    padding-bottom: 10px;
+                    margin: 50px auto 0 auto;
+                    text-align: center;
+                    font-size: 25px;
+                    // 邊框底線
+                    border-bottom: 1px solid #000000;
+                    
+                    > a {
+                        
+                        // 取消底線樣式
+                        text-decoration: none;
+                        color: #2600ff;
+                        letter-spacing: 1px;
+                    }
+                }
+                > .TMT {
+                    margin-top: 100px;
+                }
+            }
+        }
+        > div {
+            // 寬度
+            // width: $divWidth;
+            // 按鈕圖片移至最右邊
+            display: flex;
+            // 水平對齊方式:靠右
+            justify-content: flex-end;
+            > img {
+                // 右邊內間距減少(往左邊移動)
+                padding-right: 20px;
+            }
+
+        }
+    }
+};

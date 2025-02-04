@@ -1,0 +1,15 @@
+// css預處理器，設計過程更便利，語法可以重覆使用
+
+// sass分成SASS(不寫{}.; 用縮排取代{} 不可空格 不兼容css)和SCSS兩種(需寫{}.; 兼容css)
+
+// 此檔案(styles.scss)專用彙整引入檔
+// SASS SCSS檔名開頭為底線_不會編譯為css檔 可以不輸入副檔名 會自動抓取同名檔
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import "_01Joint/_01reset";
+@import "_01Joint/_02joint";
+// @import "_01Joint/_03variable";
+// @import "_01Joint/_04mixins";
+@import "_02header/_01headers";
+@import "_03footer/_01footer";
+@import "_04inmain/_01inmain";
+@import "_05webs/_01index";

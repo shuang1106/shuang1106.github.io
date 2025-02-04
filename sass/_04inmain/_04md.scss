@@ -1,0 +1,42 @@
+@use '../_01Joint/_mixins/_01media' as Rwd;
+
+@include Rwd.Rwd(md) {
+    // 繼承無法跨媒體判斷 名稱也不能相同
+    %ButsMd {
+        width: 15%;
+    }
+    #Aboutme{
+        .Content {
+            display: flex;
+            // 水平均分
+            justify-content: space-around;
+            > .img {
+                width: 85%;
+            }
+            > .TC {
+                #MM {
+                    margin: 110px 0 0 0;
+                }
+                width: 70%;
+                font-size: 25px;
+                // 總寬度不變 物件不超出框架
+                box-sizing: border-box;
+                > .text {
+                    height: 20%;
+                    margin: 5px 0 0 20px;
+                }
+            }
+        }
+    }
+    #ContactInformation {
+        .InForForm {
+            #InForm {
+                .ButBox {
+                    input {
+                        @extend %ButsMd;
+                    }
+                }
+            }
+        }
+    }
+}

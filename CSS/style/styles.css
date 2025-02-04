@@ -1,0 +1,773 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "cwTeXYen", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* 
+scss
+第一重點變數
+第二重點巢狀寫法
+第三重點繼承(Extent) 合併一模一樣的樣式內容 目前無法使用各別檔案連結 自適應也無法使用同一設定
+第四重點混入(Mixins) 將經常被重複使用的程式碼獨立撰寫 可以設定參數 需要時再代入(@include)使用
+第五重點 Mixins若設計使用函數和變數時無法用@import匯入 需使用模組@use讀取
+*/
+@media screen and (min-width: 320px) {
+  header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 6;
+    height: 88px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background-color: #ffe5ec;
+  }
+  header > h1 {
+    padding: 0 20px;
+    color: blueviolet;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+  }
+  header > h1 > a {
+    color: blueviolet;
+    text-decoration: none;
+  }
+  header > #NavBox {
+    display: none;
+  }
+  header > #NB {
+    display: none;
+    width: 100%;
+    height: 65vh;
+    position: absolute;
+    z-index: 7;
+    top: 0;
+    background-color: #ffe5ec;
+  }
+  header > #NB > #NI {
+    padding: 15px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  header > #NB > #NI > #Close {
+    margin-right: 10px;
+    font-size: 30px;
+    text-align: center;
+    width: 50px;
+    padding: 15px 0 10px 0;
+    position: absolute;
+    right: 0;
+  }
+  header > #NB > #NI > .TS {
+    width: 35%;
+    padding-bottom: 10px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 1px solid #000000;
+  }
+  header > #NB > #NI > .TS > a {
+    text-decoration: none;
+    color: #2600ff;
+    letter-spacing: 1px;
+  }
+  header > #NB > #NI > .TMT {
+    margin-top: 100px;
+  }
+  header > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  header > div > img {
+    padding-right: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  header > h1 {
+    width: 50%;
+  }
+  header > #NavBox {
+    width: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  header ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  header ul li {
+    padding: 0 30px 0 5px;
+  }
+  header ul li a {
+    color: #2600ff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+  }
+  header > div {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  header > #NavBox {
+    width: 80%;
+  }
+  header ul li {
+    padding: 0 30px 0 30px;
+  }
+}
+@media screen and (min-width: 320px) {
+  footer {
+    background-image: url(../../images/bg/footer01.jpg);
+    background-color: bisque;
+  }
+  footer ul {
+    padding: 20px 0;
+  }
+  footer ul li {
+    text-align: center;
+  }
+  footer ul .CR01 {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: #ffffff;
+  }
+  footer ul .CR02 {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+}
+/*
+    HTML框架設計
+    <div class="Card">
+        <div class="CardContent">
+            <div class="ImagesBox">
+                <img src="" alt="">
+            </div>
+            <h3></h3>
+            <p></p>
+        </div>
+    </div>
+*/
+@media screen and (min-width: 320px) {
+  #ContactInformation, #Portfolio, #Yugioh, #Aboutme {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  #ContactInformation .TitleBox h2, #Portfolio .TitleBox h2, #Yugioh .TitleBox h2, #Aboutme .TitleBox h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 0 30px 0;
+    letter-spacing: 15px;
+  }
+  #Portfolio .TitleBox h2, #Aboutme .TitleBox h2 {
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.768627451);
+  }
+  #ContactInformation .TitleBox h2, #Yugioh .TitleBox h2 {
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6784313725);
+  }
+  #ContactInformation .TitleBox .Line, #Portfolio .TitleBox .Line, #Yugioh .TitleBox .Line, #Aboutme .TitleBox .Line {
+    width: 100px;
+    height: px;
+    margin: 0 auto;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+  }
+  #Portfolio .TitleBox h2, #Aboutme .TitleBox h2 {
+    color: #ffffff;
+  }
+  #Yugioh .Card .CardContent P, #Yugioh .Card .CardContent h3, #Yugioh .Card .CardContent .ImagesBox {
+    width: 100%;
+  }
+  #PhotoS li a, #PhotoS li {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  #Aboutme {
+    background-color: #ff96b1;
+  }
+  #Aboutme .TitleBox .Line {
+    border-bottom-color: #ffffff;
+  }
+  #Aboutme .Content {
+    width: 85%;
+    padding-top: 30px;
+    margin: 0 auto;
+  }
+  #Aboutme .Content > .img {
+    padding-bottom: 30px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  #Aboutme .Content > .TC {
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 25px;
+  }
+  #Aboutme .Content > .TC > .text {
+    margin: 0 0 10px 0;
+  }
+  #Yugioh .TitleBox .Line {
+    border-bottom-color: #000000;
+  }
+  #Yugioh .Card {
+    width: 100%;
+  }
+  #Yugioh .Card .CardContent {
+    width: 280px;
+    padding: 15px;
+    margin: 30px auto;
+    -webkit-box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2274509804);
+            box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2274509804);
+    background-color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #Yugioh .Card .CardContent .ImagesBox {
+    padding: 0 0 15px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1.5px solid black;
+  }
+  #Yugioh .Card .CardContent .ImagesBox img {
+    width: 100%;
+  }
+  #Yugioh .Card .CardContent h3 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+  #Yugioh .Card .CardContent P {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #Yugioh .Card .CardContent .AST {
+    text-align: center;
+  }
+  #Portfolio {
+    background-color: #ff96b1;
+  }
+  #Portfolio .TitleBox {
+    margin-bottom: 25px;
+  }
+  #Portfolio .TitleBox .Line {
+    border-bottom-color: #ffffff;
+  }
+  #PhotoS {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #PhotoS li {
+    margin: 5px auto 0 auto;
+    width: 300px;
+    height: 200px;
+    background-color: aquamarine;
+  }
+  #PhotoS li a {
+    width: 100%;
+    height: 200px;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: transparent;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #PhotoS li a:hover {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.4235294118);
+  }
+  #PhotoS .BgImg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../../images/photos/s/001.png);
+  }
+  #ContactInformation {
+    background-repeat: no-repeat;
+    background-position: 52% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../../images/bg/bg01.jpg);
+  }
+  #ContactInformation .InForForm #InForm .B input[type=email], #ContactInformation .InForForm #InForm .B input[type=text] {
+    width: 100%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #ContactInformation .InForForm #InForm .ButBox input {
+    width: 30%;
+    height: 25px;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+  }
+  #ContactInformation .TitleBox {
+    padding-bottom: 30px;
+  }
+  #ContactInformation .InForForm {
+    width: 75%;
+    margin: 0 auto;
+    position: relative;
+    border: solid 3px #000000;
+  }
+  #ContactInformation .InForForm .Box {
+    width: 60px;
+    height: 60px;
+    background-image: url(../../images/bg/bg02.png);
+    position: absolute;
+    z-index: 5;
+    top: -35.5px;
+    right: -30px;
+  }
+  #ContactInformation .InForForm #InForm {
+    padding: 25px 15px 15px 15px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #ContactInformation .InForForm #InForm .LabelTextSize {
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px 0 5px 0;
+    letter-spacing: 1px;
+  }
+  #ContactInformation .InForForm #InForm .LabelTextSize3 {
+    width: 100%;
+    font-size: 1rem;
+    padding: 20px 0 5px 0;
+    letter-spacing: 1px;
+  }
+  #ContactInformation .InForForm #InForm .LabelTextSize2 {
+    font-size: 1rem;
+    padding: 20px 0 5px 0;
+    letter-spacing: 1px;
+  }
+  #ContactInformation .InForForm #InForm .PText {
+    text-align: right;
+  }
+  #ContactInformation .InForForm #InForm .B {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  #ContactInformation .InForForm #InForm .B input[type=radio] {
+    width: 15px;
+    height: 15px;
+  }
+  #ContactInformation .InForForm #InForm .B .RadioText1 {
+    margin-right: 15px;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+  #ContactInformation .InForForm #InForm .B .RadioText2 {
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+  #ContactInformation .InForForm #InForm .B ::-webkit-input-placeholder {
+    letter-spacing: 3px;
+  }
+  #ContactInformation .InForForm #InForm .B ::-moz-placeholder {
+    letter-spacing: 3px;
+  }
+  #ContactInformation .InForForm #InForm .B :-ms-input-placeholder {
+    letter-spacing: 3px;
+  }
+  #ContactInformation .InForForm #InForm .B ::-ms-input-placeholder {
+    letter-spacing: 3px;
+  }
+  #ContactInformation .InForForm #InForm .B ::placeholder {
+    letter-spacing: 3px;
+  }
+  #ContactInformation .InForForm #InForm .TextareaBox textarea {
+    width: 97%;
+    height: 100%;
+    max-width: 97%;
+    max-height: 240px;
+    min-width: 97%;
+    min-height: 240px;
+  }
+  #ContactInformation .InForForm #InForm .ButBox {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #ContactInformation .InForForm #InForm .ButBox .Submit {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    background-color: #ebffff;
+    color: #1100ff;
+  }
+  #ContactInformation .InForForm #InForm .ButBox .Reset {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    background-color: #fff4f4;
+    color: #ff2626;
+  }
+}
+@media screen and (min-width: 768px) {
+  #ContactInformation .InForForm #InForm .ButBox input {
+    width: 15%;
+  }
+  #Aboutme .Content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #Aboutme .Content > .img {
+    width: 85%;
+  }
+  #Aboutme .Content > .TC {
+    width: 70%;
+    font-size: 25px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #Aboutme .Content > .TC #MM {
+    margin: 110px 0 0 0;
+  }
+  #Aboutme .Content > .TC > .text {
+    height: 20%;
+    margin: 5px 0 0 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #Aboutme .Content {
+    width: 70%;
+  }
+  #Aboutme .Content > .TC {
+    width: 60%;
+  }
+  #Aboutme .Content > .img {
+    width: 60%;
+  }
+  #ContactInformation .InForForm #InForm .TextareaBox textarea {
+    width: 99%;
+    height: 100%;
+    max-width: 99%;
+    max-height: 240px;
+    min-width: 99%;
+    min-height: 240px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #ContactInformation .InForForm #InForm .TextareaBox textarea {
+    width: 99.5%;
+    height: 100%;
+    max-width: 99.5%;
+    max-height: 240px;
+    min-width: 99.5%;
+    min-height: 240px;
+  }
+}
+@media screen and (min-width: 320px) {
+  #Inmain > #BannerBox {
+    position: relative;
+    width: 100%;
+    margin-top: 88px;
+  }
+  #Inmain > #BannerBox .controls {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    display: none;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #Inmain > #BannerBox .controls button {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  #Inmain #Banners {
+    width: 100%;
+    max-width: 600px;
+    max-height: 185px;
+    overflow: hidden;
+    position: relative;
+  }
+  #Inmain #Banners .Images {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+  }
+  #Inmain #Banners .active {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 768px) {
+  #Inmain > #BannerBox .controls {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #Inmain > #BannerBox .controls button {
+    background-color: rgb(199, 199, 199);
+    color: #000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  #Inmain #Banners {
+    margin: 0 auto;
+    max-height: 323px;
+  }
+  #Inmain > #Portfolio #PhotoS {
+    margin: 0 80px 0 80px;
+    display: grid;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #Inmain #YugiohCard {
+    width: 95%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  #Inmain #YugiohCard > .CardContent {
+    width: 30%;
+  }
+  #Inmain #YugiohCard > .Photos1 {
+    width: 35%;
+  }
+  #Inmain #YugiohCard > .Photos2 {
+    width: 50%;
+  }
+  #Inmain #YugiohCard > .Photos3 {
+    width: 50%;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  #Inmain #YugiohCard {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  #Inmain #YugiohCard > .CardContent {
+    margin: 30px 20px 0 20px;
+  }
+  #Inmain > #Portfolio #PhotoS {
+    margin: 15px 50px 15px 50px;
+    display: grid;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  header ul li {
+    padding: 0 40px 0 50px;
+  }
+  #Inmain > #Aboutme .Content {
+    width: 60%;
+  }
+  #Inmain > #Aboutme .Content > .img {
+    width: 50%;
+  }
+  #Inmain > #Aboutme .Content > .TC {
+    width: 60%;
+  }
+  #Inmain > #Aboutme .Content > .TC #MM {
+    margin: 110px 0 0 0;
+  }
+  #Inmain > #Portfolio #PhotoS {
+    margin: 15px 185px 15px 185px;
+    display: grid;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #Inmain #YugiohCard > .CardContent {
+    margin: 30px 30px 0 30px;
+  }
+  #Inmain #YugiohCard > .Photos1 {
+    width: 50%;
+  }
+  #Inmain #YugiohCard > .Photos2 {
+    width: 70%;
+  }
+  #Inmain #YugiohCard > .Photos3 {
+    width: 70%;
+  }
+  #Inmain #ContactInformation .InForForm .Box {
+    width: 70px;
+    height: 70px;
+    background-image: url(../../images/bg/bg03.png);
+    top: -45.5px;
+    right: -35px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #Inmain > #Portfolio #PhotoS {
+    margin: 15px 255px 15px 255px;
+  }
+  #Inmain #YugiohCard {
+    width: 90%;
+  }
+  #Inmain #YugiohCard > .CardContent {
+    margin: 30px 20px 0 20px;
+  }
+  #Inmain #YugiohCard > .Photos1 {
+    width: 45%;
+  }
+  #Inmain #YugiohCard > .Photos2 {
+    width: 60%;
+  }
+  #Inmain #YugiohCard > .Photos3 {
+    width: 60%;
+  }
+}

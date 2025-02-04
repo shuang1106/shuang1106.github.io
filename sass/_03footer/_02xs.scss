@@ -1,0 +1,24 @@
+@use '../_01Joint/_mixins/_01media' as Rwd;
+
+@include Rwd.Rwd(xs) {
+    footer {
+        background-image: url(../../images/bg/footer01.jpg);
+        background-color: bisque;
+        ul {
+            padding: 20px 0;
+            li {
+                
+                text-align: center;
+            }
+            .CR01 {
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+                color: #ffffff;
+            }
+            .CR02 {
+                font-size: 0.9rem;
+                color: #ffffff;
+            }
+        }
+    }
+}

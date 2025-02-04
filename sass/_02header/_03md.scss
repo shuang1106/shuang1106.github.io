@@ -1,0 +1,64 @@
+
+
+// 媒體判斷media
+// 1.標籤選取器 2.子孫選取器(例:header h1) 3.子(指)選取器(例:header>nav)
+
+// 設計手機版的樣式使用media媒體判斷:1.讀取變數檔案2.讀取媒體判斷檔案
+@use '../_01Joint/_03variable' as Var;
+@use '../_01Joint/_mixins/_01media' as Rwd;
+
+@include Rwd.Rwd(md) {
+    header {
+        // padding: 30px 50px 30px 50px;
+        >h1 {
+            // padding: 0 20px;
+            width: 50%;
+            // margin: 0;
+        }
+        > #NavBox {
+            
+            // height: 88px;
+            width: 60%;
+            // // 用margin設定右邊外間距與頁面的距離
+            // margin-right: 5px;
+            // 顯示方式:區域
+            // display: block;
+            // 定位方式:恢復原始設定
+            // position: static;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            // background-color: rgba(255, 255, 255, 0);
+            
+        }
+        ul {
+            // 子元素的排列方式為彈性容器
+            display: flex;
+            // 水平對齊:元素前後有間距
+            // justify-content: space-around;
+            // > #Close {
+            //     display: none;
+            // }
+            
+            li {
+                
+                padding: 0 30px 0 5px;
+                a {
+                    // 超連結文字顏色
+                    color: #2600ff;
+                    // 取消文字底線樣式
+                    text-decoration: none;
+                    // 設定字距
+                    letter-spacing: 1px;
+                    // 文字尺寸
+                    font-size: 1.3rem;
+                }
+            }
+            
+        }
+        > div {
+            // 隱藏按鈕
+            display: none;
+        }
+    }
+};

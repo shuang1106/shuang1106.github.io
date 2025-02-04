@@ -1,0 +1,17 @@
+// 變數可以儲存想重複使用的樣式表 sass使用$符號使自訂名稱成為變數
+
+// 變數的命名方式 取有意義的英文和數字名稱 英文開頭:英文可全小寫 字詞開頭大寫 兩個單字合併全小寫 兩個單字合併單字開頭為大寫-駝峰命名法 兩個單字合併可用_底線連接
+$pink: #ffe5ecff;
+$pink2: #ff96b1;
+
+// $cherry-blossom-pink: #ffb3c6ff;
+// $bakermiller-pink: #ff8fabff;
+// $rose-pompadour: #fb6f92ff;
+
+// 設定媒體判斷尺寸
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;

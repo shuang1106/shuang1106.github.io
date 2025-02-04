@@ -1,0 +1,26 @@
+
+
+// 媒體判斷media
+// 1.標籤選取器 2.子孫選取器(例:header h1) 3.子(指)選取器(例:header>nav)
+
+// 設計手機版的樣式使用media媒體判斷:1.讀取變數檔案2.讀取媒體判斷檔案
+@use '../_01Joint/_03variable' as Var;
+@use '../_01Joint/_mixins/_01media' as Rwd;
+
+@include Rwd.Rwd(lg) {
+    header {
+        > #NavBox {
+            
+            width: 80%;
+            
+        }
+        ul {
+            li {
+                
+                padding: 0 30px 0 30px;
+                
+            }
+            
+        }
+    }
+};
